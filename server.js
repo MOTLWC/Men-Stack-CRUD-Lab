@@ -13,8 +13,12 @@ async function init() {
     catch(err){console.log(err)}
 }
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
     res.render("index.ejs")
+});
+
+app.get("/index/new", (req, res) => {
+    res.render("new.ejs");
 });
 
 init();
