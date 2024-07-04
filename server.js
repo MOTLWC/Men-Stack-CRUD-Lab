@@ -21,4 +21,8 @@ app.get("/index/new", (req, res) => {
     res.render("new.ejs");
 });
 
+app.post("/index/new", (req,res) => {
+    console.log("Well it's erroring so i won't see this");
+    res.redirect("/index/new")
+})
 init();
