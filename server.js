@@ -13,6 +13,9 @@ async function init() {
     catch(err){console.log(err)}
 }
 
+// Middleware
+app.use(express.urlencoded({ extended: false }));
+
 app.get("/", (req, res) => {
     res.render("index.ejs")
 });
@@ -21,8 +24,16 @@ app.get("/index/new", (req, res) => {
     res.render("new.ejs");
 });
 
-app.post("/index/new", (req,res) => {
-    console.log("Well it's erroring so i won't see this");
+app.get("/index/list", async (req,res) => {
+    res.render("list.ejs",{fruitArray:await Fruit.find()})
+});
+
+app.post("/index/new", async (req,res) => {
+    try{
+    await Fruit.create({name : req.body.name, rating : req.body.rating, doctorFructophobia : req.body.doctorFructophobia === "on"? true: false})
+    } catch(err){
+        console.log(err);
+    }
     res.redirect("/index/new")
 })
 init();

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+</head>
+<body>
+    <%- include("./templates/nav.ejs") %>
+    <h1>Fruit List</h1>
+    <main>
+        <ul>
+        <%fruitArray.forEach((Fruit) => {%>
+            <li>
+                <h3><%=Fruit.name%></h3>
+                <div>
+                    <%for (let i = 0; i < Fruit.rating;i++){%>
+                    *
+                    <%}%>
+                </div>
+                <p>Doctors are <%=!Fruit.doctorFructophobia?"not "%>afraid of these!</p>
+            </li>
+            <%});%>
+        </ul>
+    </main>
+</body>
+</html>
