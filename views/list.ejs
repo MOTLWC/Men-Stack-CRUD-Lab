@@ -10,17 +10,11 @@
     <h1>Fruit List</h1>
     <main>
         <ul>
-        <%fruitArray.forEach((Fruit) => {%>
-            <li>
-                <h3><%=Fruit.name%></h3>
-                <div>
-                    <%for (let i = 0; i < Fruit.rating;i++){%>
-                    *
-                    <%}%>
-                </div>
-                <p>Doctors are <%=!Fruit.doctorFructophobia?"not "%>afraid of these!</p>
-            </li>
-            <%});%>
+            <% fruitArray.forEach((Fruit) => { %>
+                <li>
+                    <a href="/index/<%= Fruit.id %>" ><%= Fruit.name %></a>
+                </li>
+            <% }); %>
         </ul>
     </main>
 </body>

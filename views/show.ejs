@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= Fruit.name %>
+    </title>
+</head>
+
+<body>
+    <%- include("./templates/nav.ejs") %>
+        <main>
+            <h3>
+                <%= Fruit.name %>
+            </h3>
+            <div>
+                <% for (let i=0; i < Fruit.rating; i++) { %>
+                    *
+                    <% } %>
+            </div>
+            <p>Doctors are <%= (!Fruit.doctorFructophobia) ? "not " : "" %>afraid of these!</p>
+        </main>
+        <form action="/index/delete/<%= Fruit.id %>?_method=DELETE" method="POST"><input type="submit" id="deleteButton" value="DELETE"></form>
+        <a href="./update/<%= Fruit.id %>" >UPDATE DATA</a>
+</body>
+
+</html>

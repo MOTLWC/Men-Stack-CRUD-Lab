@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= Fruit.id %></title>
+</head>
+<body>
+    <%- include("./templates/nav.ejs") %>
+    <h1><%= Fruit.id %></h1>
+    <form action="/index/update/<%= Fruit.id %>?_method=PUT" method="POST">
+        <lable hidden for="inputName">What's the name of your fruit?</lable>
+        <input type="text" id="inputName" name="name" value="<%= Fruit.name %>">
+        <lable hidden for="inputRating">How would you rate this fruit?</lable>
+        <input type="number" id="inputRating" name="rating" value="<%= Fruit.rating %>">
+        <lable hidden for="inputDoctorFructophobia">Are doctors afraid of this fruit?</lable>
+        <input type="checkbox" id="inputDoctorFructophobia" name="doctorFructophobia" <%= Fruit.doctorFructophobia && "checked"%>>
+        <lable hidden for="submitButton">Submit Fruit</lable>
+        <input type="submit" id="submitButton" value="Submit">
+    </form>
+</body>
+</html>
